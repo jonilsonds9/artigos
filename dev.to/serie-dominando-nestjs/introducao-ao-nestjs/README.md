@@ -190,7 +190,7 @@ E clique no botão `Send Request` que aparece acima da requisição. Você deve 
 
 ![Resultado da requisição GET na rota raiz](./images/7-get-request-root.png)
 
-## Proximos passos
+## Próximos passos
 
 Agora que você já tem sua primeira aplicação rodando, você pode começar a explorar os principais conceitos e funcionalidades do NestJS. Lembre-se de enviar seu projeto para o repositório remoto como o GitHub ou GitLab.
 
