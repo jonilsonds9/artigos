@@ -1,32 +1,32 @@
 # Introdução ao NestJS: Criando sua primeira aplicação
 
-Neste artigo, vamos dar uma visão geral do que é o NestJS, como ele funciona, por que você deve usá-lo e como criar sua primeira aplicação com este poderoso framework. E não se preocupe, não vamos ter muito blá blá blá, vamos direto ao ponto!
+Neste artigo, vamos ter uma visão geral do que é o NestJS, como ele funciona, por que você deve usá-lo e como criar sua primeira aplicação com este poderoso framework. E não se preocupe, não vamos ter muita enrolação, vamos direto ao ponto!
 
-Este artigo faz parte da série "Dominando o NestJS", onde exploramos os principais conceitos e funcionalidades do framework, além de criar projetos práticos.
+Este artigo é o primeiro da série "Dominando o NestJS", onde exploramos os principais conceitos e funcionalidades do framework, além de criar projetos práticos.
 
 ## O que é o NestJS?
 
 O NestJS é um framework para construir aplicações Node.js escaláveis e eficientes, utilizando TypeScript. Construído sobre o Express, ele traz uma arquitetura modular, facilitando a organização e manutenção do código.
 
-Inspirado em conceitos de programação orientada a objetos, funcional e reativa, o NestJS é altamente extensível e permite integração com bibliotecas e ferramentas populares, como TypeORM, Mongoose, GraphQL, WebSockets, microservices, filas, entre outros.
+Inspirado em conceitos de programação orientada a objetos, funcional e reativa, o NestJS é altamente extensível e permite integração com bibliotecas e ferramentas populares.
 
 ## Por que usar o NestJS?
 
-A resposta é simples: produtividade e escalabilidade. O NestJS oferece uma estrutura sólida e organizada para o desenvolvimento de aplicações, permitindo que você se concentre na lógica de negócios enquanto o framework cuida da parte estrutural. Com isso, você pode começar a desenvolver componentes reutilizáveis, facilitando a manutenção e a evolução do código.
+A resposta é simples: **Produtividade e escalabilidade**. O NestJS oferece uma estrutura sólida e organizada para o desenvolvimento de aplicações, permitindo que você se concentre na lógica de negócios enquanto o framework cuida da parte estrutural. Com isso, você pode começar a desenvolver componentes reutilizáveis, facilitando a manutenção e a evolução do código.
 
 O NestJS também possui suporte nativo para TypeScript, o que traz benefícios como tipagem forte e melhor experiência no desenvolvimento. Com isso, podemos usar um linter e/ou Prettier para padronizar e manter o código limpo, facilitando para que outros desenvolvedores entendam e colaborem no projeto.
 
-A comunidade do NestJS é bastante ativa e está em crescimento. Você pode entrar diretamente no servidor do Discord do NestJS e tirar suas dúvidas com outros desenvolvedores. Ele também possui uma documentação completa e bem estruturada, o que facilita o aprendizado e a adoção do framework.
+A comunidade do NestJS é bastante ativa e está em crescimento. Você pode entrar diretamente no servidor do [Discord](https://discord.gg/G7Qnnhy) do NestJS e tirar suas dúvidas com outros desenvolvedores. Ele também possui uma [documentação](https://docs.nestjs.com/) completa e bem estruturada, o que facilita o aprendizado e a adoção do framework.
 
 Também é possível integrar o NestJS com outras tecnologias, como bancos de dados relacionais e não relacionais, filas de mensagens, autenticação, testes automatizados, entre outros. Isso torna o NestJS uma excelente escolha para projetos de todos os tamanhos e complexidades.
 
 ## O que você vai aprender nesta série?
 
-Nesta série, vamos explorar os principais conceitos e funcionalidades do NestJS, de forma prática e objetiva. Vamos abordar os seguintes tópicos:
+Nesta série, vamos explorar os principais conceitos e funcionalidades do NestJS, de forma prática e objetiva. Então, vamos entender e utilizar os seguintes recursos:
 
-- **Módulos**: Estrutura a aplicação em módulos, explica como criar e organizar módulos, e como utilizar módulos externos.
-- **Controladores**: Criar rotas e manipular requisições HTTP, como lidar com parâmetros de rota, query strings e corpo da requisição.
-- **Serviços**: É onde fica a lógica de negócios da aplicação, e podemos injetar serviços em controladores e outros serviços.
+- **Módulos**: Classe anotada com o decorator `@Module`, que fornece metadados para organizar e gerenciar a estrutura do aplicativo.
+- **Controladores**: Cria rotas e manipula requisições HTTP, manipula parâmetros de rota, query strings e corpo das requisições.
+- **Serviços**: Contém a lógica de negócios da aplicação, pode ser utilizado para injetar serviços em controladores e em outros serviços.
 - **Injeção de dependência**: Facilita o gerenciamento de dependências entre componentes.
 - **Middleware**: Intercepta requisições e respostas, permitindo adicionar diversas funcionalidades, entre outras.
 - **Pipes**: Transformam e validam dados de entrada, permitindo garantir que os dados recebidos estejam no formato correto.
@@ -36,12 +36,12 @@ Nesta série, vamos explorar os principais conceitos e funcionalidades do NestJS
 
 ## Pré-requisitos
 
-Chega de blá blá blá, vamos colocar a mão na massa! Primeiro de tudo, vamos aos pré-requisitos. Para seguir esta série, você precisa ter conhecimentos básicos de JavaScript e TypeScript, além de noções de desenvolvimento APIs RESTful.
-E, claro, você deve ter o Node.js instalado na sua máquina. 
+Chega de blá blá blá, vamos colocar a mão na massa! Primeiro de tudo, vamos aos pré-requisitos. Para seguir esta série, você precisa ter conhecimentos básicos de **JavaScript** e **TypeScript**, além de noções de desenvolvimento **APIs RESTful**.
+E, claro, você deve ter o Node.js instalado na sua máquina.
 
 **1. Instalação do Node.js com NVM**
 
-Você pode baixar a versão mais recente do Node.js [aqui](https://nodejs.org), recomendo usar o Node.js LTS (Long Term Support), que é a versão mais estável e recomendada para a maioria dos usuários. 
+Você pode baixar a versão mais recente do Node.js [aqui](https://nodejs.org), recomendo usar o Node.js LTS (Long Term Support), que é a versão mais estável e recomendada para a maioria dos usuários.
 
 Você também pode usar o [**NVM** (Node Version Manager)](https://github.com/nvm-sh/nvm) para gerenciar as versões do Node.js na sua máquina e facilitar a sua vida no futuro. O NVM permite instalar e alterar entre diferentes versões do Node.js com facilidade. Para saber sobre a instalação do NVM, veja a [documentação oficial](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating). Com o NVM instalado, você pode instalar a versão mais recente do Node.js com o seguinte comando:
 ```shell
@@ -120,7 +120,7 @@ Após a criação do projeto, entre na pasta do projeto:
 ```shell
 cd nestjs-auth
 ```
-E abra no seu editor de código preferido. Vou usar o Visual Studio Code.
+Abra no seu editor de código preferido. Vou usar o Visual Studio Code.
 
 ![Projeto no Visual Studio Code](./images/4-project-in-vs-code.png)
 
@@ -148,26 +148,26 @@ nestjs-auth/
 ├── tsconfig.json
 ```
 
-- `src/`: É onde fica o código fonte da aplicação:
-  - `app.controller.spec.ts`: É o arquivo de teste do controlador raiz da aplicação. Ele é responsável por testar o controlador.
-  - `app.controller.ts`: É o controlador raiz da aplicação. Ele é responsável por lidar com as requisições HTTP e retornar as respostas.
-  - `app.module.ts`: É o módulo raiz da aplicação. Ele é responsável por importar e configurar os demais módulos, controladores e serviços da aplicação.
-  - `app.service.ts`: É o serviço raiz da aplicação. Ele é responsável por conter a lógica de negócios da aplicação.
-  - `main.ts`: É o ponto de entrada da aplicação. Ele é responsável por iniciar o servidor e carregar o módulo raiz da aplicação usando o `NestFactory`.
-- `test/`: É onde ficam os testes da aplicação, focados em testes de integração e E2E.
-- `.gitignore`: É o arquivo de configuração do Git. Ele contém os arquivos e pastas que devem ser ignorados pelo Git.
-- `.prettierrc`: É o arquivo de configuração do Prettier. Ele contém as regras de formatação do código e pode ser JSON ou YAML.
-- `eslint.config.mjs`: É o arquivo de configuração do ESLint. Ele contém as regras de linting do código.
-- `nest-cli.json`: É o arquivo de configuração do NestJS CLI. Ele contém as configurações do projeto, como o diretório de saída dos arquivos compilados.
-- `package.json`: É o arquivo de configuração do projeto. Ele contém as dependências, scripts e configurações do projeto.
-- `pnpm-lock.yaml`: É o arquivo de bloqueio do PNPM. Ele contém as versões exatas das dependências instaladas no projeto, garantindo que todos os desenvolvedores utilizem as mesmas versões.
-- `README.md`: É o arquivo de documentação do projeto. Ele contém informações sobre o projeto, como instalar, executar e contribuir.
+- `src/`: Onde fica o código fonte da aplicação:
+ - `app.controller.spec.ts`: Arquivo de teste do controlador raiz da aplicação. Ele é responsável por testar o controlador.
+ - `app.controller.ts`: Controlador raiz da aplicação. Ele é responsável por lidar com as requisições HTTP e retornar as respostas.
+ - `app.module.ts`: Módulo raiz da aplicação. Ele é responsável por importar e configurar os demais módulos, controladores e serviços da aplicação.
+ - `app.service.ts`: Serviço raiz da aplicação. Ele é responsável por conter a lógica de negócios da aplicação.
+ - `main.ts`: Ponto de entrada da aplicação. Ele é responsável por iniciar o servidor e carregar o módulo raiz da aplicação usando o `NestFactory`.
+- `test/`: Onde ficam os testes da aplicação, focados em testes de integração e E2E.
+- `.gitignore`: Arquivo de configuração do Git. Ele contém os arquivos e pastas que devem ser ignorados pelo Git.
+- `.prettierrc`: Arquivo de configuração do Prettier. Ele contém as regras de formatação do código e pode ser JSON ou YAML.
+- `eslint.config.mjs`: Arquivo de configuração do ESLint. Ele contém as regras de linting do código.
+- `nest-cli.json`: Arquivo de configuração do NestJS CLI. Ele contém as configurações do projeto, como o diretório de saída dos arquivos compilados.
+- `package.json`: Arquivo de configuração do projeto. Ele contém as dependências, scripts e configurações do projeto.
+- `pnpm-lock.yaml`: Arquivo de bloqueio do PNPM. Ele contém as versões exatas das dependências instaladas no projeto, garantindo que todos os desenvolvedores utilizem as mesmas versões.
+- `README.md`: Arquivo de documentação do projeto. Ele contém informações sobre o projeto, como instalar, executar e contribuir.
 - `tsconfig.build.json`: Esse arquivo estende o `tsconfig.json` e contém as configurações específicas para a construção (build) do projeto. Com isso, ele adiciona ou sobrescreve algumas configurações do tsconfig.json para a construção do projeto
-- `tsconfig.json`: É o arquivo de configuração do TypeScript. Ele contém as configurações do compilador TypeScript, como o diretório de saída dos arquivos compilados e as opções de compilação.
+- `tsconfig.json`: Arquivo de configuração do TypeScript. Ele contém as configurações do compilador TypeScript, como o diretório de saída dos arquivos compilados e as opções de compilação.
 
 ## Executando a aplicação
 
-O Nest CLI já cria o projeto com um `AppController` que é responsável por lidar com as requisições HTTP na rota raiz `/`. Ele invoca o método `getHello()` do serviço `AppService`:
+O Nest CLI cria o projeto com um `AppController` que é responsável por lidar com as requisições HTTP na rota raiz `/`. Ele invoca o método `getHello()` do serviço `AppService`:
 
 ![Controller criado pelo NestJS CLI](./images/5-app-controller.png)
 
@@ -180,7 +180,7 @@ Para executar a aplicação, você pode usar o seguinte comando:
 pnpm run start
 ```
 
-Pronto, a aplicação deve estar rodando na porta 3000. Você pode acessar a aplicação no seu navegador http://localhost:3000 ou usar o [**REST Client**](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) do VSCode para fazer uma requisição GET para a rota raiz `/`, para isso crie um arquivo `api.http` na raiz do projeto com o seguinte conteúdo:
+Pronto, a aplicação deve estar rodando na porta 3000. Você pode acessar a aplicação no seu navegador através do endereço http://localhost:3000 ou usar o [**REST Client**](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) do VSCode para fazer uma requisição GET para a rota raiz `/`. Para isso crie um arquivo `api.http` na raiz do projeto com o seguinte conteúdo:
 
 ```http
 GET http://localhost:3000/
@@ -194,8 +194,8 @@ E clique no botão `Send Request` que aparece acima da requisição. Você deve 
 
 Agora que você já tem sua primeira aplicação rodando, você pode começar a explorar os principais conceitos e funcionalidades do NestJS. Lembre-se de enviar seu projeto para o repositório remoto como o GitHub ou GitLab.
 
-Lembre-se de que vamos utilizar esse projeto ou criar novos projetos durante a série.
+> Lembre-se de que vamos utilizar esse projeto ou criar novos projetos durante a série.
 
 ## Conclusão
 
-Neste artigo, você aprendeu o que é o NestJS, por que usá-lo e como criar sua primeira aplicação com ele. Também vimos a estrutura do projeto criado pelo NestJS CLI e como executar a aplicação. Por hoje é só, mas não se preocupe, ainda temos muito mais pela frente!
+Neste artigo, você aprendeu o que é o NestJS, por que usá-lo e como criar sua primeira aplicação. Também vimos a estrutura do projeto criado pelo NestJS CLI e como executar a aplicação. Por hoje é só, mas não se preocupe, ainda temos muito mais pela frente!
