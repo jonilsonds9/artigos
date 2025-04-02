@@ -1,2 +1,3 @@
-# artigos
-Repo para armazenar artigos
+# Artigos
+
+Repo para armazenar artigos, e arquivos utilizados nos artigos como imagens, scripts, etc.
