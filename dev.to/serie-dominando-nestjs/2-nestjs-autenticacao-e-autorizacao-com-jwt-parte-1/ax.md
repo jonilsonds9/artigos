@@ -1,0 +1,4 @@
+## Referências
+
+- [JSON Web Tokens
+](https://auth0.com/docs/secure/tokens/json-web-tokens)
