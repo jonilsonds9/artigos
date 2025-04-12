@@ -13,18 +13,18 @@ Para facilitar o desenvolvimento, vamos usar o PostgreSQL no Docker. Para isso v
 Com o Docker instalado, crie um arquivo `docker-compose.yml` na raiz do seu projeto com o seguinte conteúdo:
 ```yaml
 services:
- postgres:
-   image: postgres:16
-   container_name: nestjs_postgres
-   environment:
-     TZ: 'America/Sao_Paulo'
-     POSTGRES_USER: ${DB_USER}
-     POSTGRES_PASSWORD: ${DB_PASSWORD}
-     POSTGRES_DB: ${DB_NAME}
-   ports:
-     - "5432:5432"
-   volumes:
-     - .tmp/database:/var/lib/postgresql/data
+  postgres:
+    image: postgres:16
+    container_name: nestjs_postgres
+    environment:
+      TZ: 'America/Sao_Paulo'
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - .tmp/database:/var/lib/postgresql/data
 ```
 
 Certo, de forma proposital eu deixei variáveis de ambiente `DB_USER`, `DB_PASSWORD` e `DB_NAME` em vez de valores fixos. Isso é uma boa prática, pois permite que você altere esses valores sem precisar modificar o código. Além disso, você pode usar diferentes valores para diferentes ambientes (desenvolvimento, teste, produção, etc.).
