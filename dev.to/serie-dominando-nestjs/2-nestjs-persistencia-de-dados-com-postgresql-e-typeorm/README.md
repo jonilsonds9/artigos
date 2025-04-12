@@ -45,6 +45,9 @@ Isso irá iniciar o PostgreSQL em segundo plano. Você pode verificar se o cont�
 ```shell
 docker ps
 ```
+
+![PostgreSQL rodando no Docker](./images/1-postgres-docker-compose.png)
+
 Você pode acessar o PostgreSQL usando o cliente `psql` do Docker. Execute o seguinte comando para acessar o contêiner do PostgreSQL:
 ```shell
 docker exec -it nestjs_postgres psql -U postgres -d nestdb
@@ -64,7 +67,7 @@ Para isso, vamos instalar o `@nestjs/typeorm`, junto com o `typeorm` de fato e d
 pnpm install @nestjs/typeorm typeorm pg
 ```
 
-Assim como o pacote `@nestjs/typeorm`, o NestJS também tem um pacote `@nestjs/jwt` para ajudar com a manipulação de tokens JWT. Podemos também já instalar o `bycrypt` para fazer o hash da senha do usuário que vamos cadastrar:
+Podemos também já instalar o `bycrypt` para fazer o hash da senha do usuário que vamos cadastrar:
 ```shell
 pnpm install @nestjs/jwt bcrypt
 ```
@@ -87,7 +90,7 @@ Em projeto Node.js, as variáveis de ambiente são acessadas através do objeto 
 ```
 Ao executar a aplicação e acessar o http://localhost:3000, você verá que o valor de `DB_NAME` é `undefined`. Isso acontece porque o dotenv não está configurado para carregar as variáveis de ambiente do arquivo `.env`.
 
-![Variável de ambiente undefined](./images/3-variaivel-de-ambiente-undefined.png)
+![Variável de ambiente undefined](./images/2-variaivel-de-ambiente-undefined.png)
 
 Para configurar as variáveis de ambiente no NestJS, vamos usar o pacote `@nestjs/config`. Esse pacote usa o **[dotenv](https://www.npmjs.com/package/dotenv)** internamente para carregar as variáveis de ambiente de um arquivo `.env` e disponibilizá-las na aplicação. Para instalar o pacote `@nestjs/config` use o seguinte comando:
 ```shell
@@ -126,6 +129,8 @@ import { ConfigModule } from '@nestjs/config';
 })
 export class AppModule {}
 ```
+
+![ConfigModule Global](./images/3-config-module.png)
 
 ## Configurando DatabaseModule com TypeORM
 
@@ -188,7 +193,7 @@ Veja que o `ConfigService` já está injetado no `useFactory` e podemos acessar 
 
 - **`synchronize`**: Opção que faz com que o TypeORM sincronize o banco de dados com as entidades sempre que a aplicação for iniciada. Isso é útil para desenvolvimento, mas **não é recomendado para produção**. Nesse caso, estamos usando a variável de ambiente `NODE_ENV` para verificar se não estamos em produção. Se o `NODE_ENV` for diferente de `production`, o `synchronize` será `true`, caso contrário será `false`. Isso significa que o banco de dados será sincronizado apenas em desenvolvimento ou testes. Em produção, você deve usar `migrations` para atualizar o banco de dados.
 
-![database.module.ts](./images/5-database-module.png)
+![database.module.ts](./images/4-database-module.png)
 
 > Lembre-se de adicionar a variável de ambiente `NODE_ENV` no arquivo `.env` para que o TypeORM saiba em qual ambiente está rodando. Para isso, adicione a seguinte linha no arquivo `.env`:
 > ```dotenv
