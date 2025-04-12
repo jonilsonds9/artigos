@@ -83,10 +83,10 @@ Sabemos que as variáveis de ambiente são uma boa prática para manter as infor
 Em projeto Node.js, as variáveis de ambiente são acessadas através do objeto `process.env`, entretanto temos que configurar o **[dotenv](https://www.npmjs.com/package/dotenv)** para que as variáveis de ambiente sejam carregadas corretamente. Você pode testar adicionando o seguinte código no seu `app.controller.ts`:
 ```typescript
 @Get()
- getHello(): string {
-   console.log(process.env.DB_NAME);
-   return this.appService.getHello();
- }
+getHello(): string {
+  console.log(process.env.DB_NAME);
+  return this.appService.getHello();
+}
 ```
 Ao executar a aplicação e acessar o http://localhost:3000, você verá que o valor de `DB_NAME` é `undefined`. Isso acontece porque o dotenv não está configurado para carregar as variáveis de ambiente do arquivo `.env`.
 
@@ -104,9 +104,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
- imports: [],
- controllers: [AppController],
- providers: [AppService],
+  imports: [],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
 ```
@@ -119,13 +119,13 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
- imports: [
-   ConfigModule.forRoot({
+  imports: [
+    ConfigModule.forRoot({
      isGlobal: true,
    }),
- ],
- controllers: [AppController],
- providers: [AppService],
+  ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
 ```
@@ -164,23 +164,23 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
- imports: [
-   TypeOrmModule.forRootAsync({
-     imports: [ConfigModule],
-     inject: [ConfigService],
-     useFactory: (config: ConfigService) => ({
-       type: 'postgres',
-       host: config.get('DB_HOST', 'localhost'),
-       port: config.get<number>('DB_PORT', 5432),
-       username: config.get('DB_USER'),
-       password: config.get<string>('DB_PASSWORD'),
-       database: config.get('DB_NAME'),
-       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-       synchronize: config.get('NODE_ENV') !== 'production',
-     }),
-   }),
- ],
- exports: [TypeOrmModule],
+  imports: [
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        type: 'postgres',
+        host: config.get('DB_HOST', 'localhost'),
+        port: config.get<number>('DB_PORT', 5432),
+        username: config.get('DB_USER'),
+        password: config.get<string>('DB_PASSWORD'),
+        database: config.get('DB_NAME'),
+        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+        synchronize: config.get('NODE_ENV') !== 'production',
+      }),
+    }),
+  ],
+  exports: [TypeOrmModule],
 })
 export class DatabaseModule {}
 ```
