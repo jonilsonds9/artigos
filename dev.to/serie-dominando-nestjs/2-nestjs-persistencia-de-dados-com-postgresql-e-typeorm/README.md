@@ -130,7 +130,7 @@ import { ConfigModule } from '@nestjs/config';
 export class AppModule {}
 ```
 
-![ConfigModule Global](./images/3-config-module.png)
+![ConfigModule Global](./images/3-configmodule-global.png)
 
 ## Configurando DatabaseModule com TypeORM
 
