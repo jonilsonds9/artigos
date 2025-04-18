@@ -177,7 +177,7 @@ import { User } from './entities/user.entity';
 export class UsersModule {}
 ```
 
-![UsersModule com forFeature](./images/3-users-module-with-for-feature.png)
+![UsersModule com forFeature](./images/4-users-module-with-for-feature.png)
 
 Agora já temos o repositório de usuários registrado no `UsersModule`. O repositório de usuários pode ser injetado no `UsersService` e pode ser usado para fazer as operações no banco de dados. O repositório é injetado através do construtor do `UsersService`. Para isso, precisamos importar o `InjectRepository` do `@nestjs/typeorm` e o `Repository` do `typeorm`. O `InjectRepository` é um decorator que indica que queremos injetar  um repositório, temos que passar como argumento o tipo do repositório que queremos injetar, no caso a entidade `User`. O `Repository` é a classe base do TypeORM para trabalhar com entidades, e precisamos indicar o tipo da entidade que queremos trabalhar, no caso `User` usando o generics, ou seja, `Repository<User>`. O `UsersService` deve ficar assim:
 
